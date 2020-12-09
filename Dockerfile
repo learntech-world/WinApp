@@ -1,8 +1,11 @@
-FROM docker pull mcr.microsoft.com/dotnet/framework/aspnet:4.8
+FROM mcr.microsoft.com/dotnet/framework/sdk:4.8 AS build
 
 WORKDIR /app
 
-COPY WinApp/ .
-RUN dotnet restore
-RUN dotnet build -c Release -o out
-ENTRYPOINT ["/app/out/WinApp.exe"]
+COPY *.sln .
+COPY WinApp/*.csproj ./WinApp/
+RUN nuget restore
+
+COPY WinApp/. ./WinApp/
+WORKDIR /app/WinApp
+RUN msbuild /p:Configuration=Release
