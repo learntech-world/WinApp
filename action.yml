@@ -1,7 +1,7 @@
 # action.yml
 name: '.NetFramework Action Template'
 description: 'Template for .Net Framework Action'
-author: 'Gumpanat Keardkeawfa <https://github.com/Christopherchris>'
+author: 'Gumpanat Keardkeawfa <https://github.com/learntech-world>'
 branding:
   icon: 'book-open'
   color: 'blue'
